@@ -1,7 +1,10 @@
 
 #HistoriaHome{
-    background-image: url(../assets/imgMain2.png);
+    background-image: url(../assets/sabotage.jpg), url(../assets/Traficando_Informação.jpg);
     background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: right, left;
     height: 230vh;
     width: 100%;
     display: flex;
