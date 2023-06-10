@@ -20,7 +20,6 @@ body {
   height: 5rem;
 }
 
-
 .container {
   display: flex;
   width: 80%;
@@ -243,26 +242,28 @@ body {
 }
 
 .login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  height: 100vh;
+  background-image: url('../assets/BK-Icarus.jpeg');
   background-size: cover;
+
 }
 
 .login .container {
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100% ;
 }
 
 .card {
   width: 30%;
-  background-color: #e5e5e5;
+  backdrop-filter: blur(1px);
+  border: 1px solid black;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  color: palevioletred;
+  color: lightblue;
   row-gap: 20px;
 }
 
@@ -277,6 +278,7 @@ body {
 .card h2 {
   margin: 0;
   font-size: 30px;
+  color: darkblue;
 }
 
 .formulario {
@@ -313,7 +315,7 @@ body {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #e6005a;
+  background-color: darkblue;
   width: 120px;
   height: 30px;
   align-self: center;

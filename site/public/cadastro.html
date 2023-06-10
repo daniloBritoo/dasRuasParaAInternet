@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AquaTech | Cadastro</title>
+    <title>Cadastro</title>
 
 
     <script src="./js/funcoes.js"></script>
@@ -23,26 +23,41 @@
 <body>
 
     <!--header inicio-->
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li class="agora">
-                    <a href="#">Cadastro</a>
-                </li>
-            </ul>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/novaGuarda.css">
+        <link rel="stylesheet" href="./css/estilo.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    </head>
+    
+    <body>
+        <div class="header">
+            <div class="container">
+                <a href="index.html"> <img src="assets/logoProjInd.jpg" id="imgLogo"></a>
+                <ul class="navbar">
+                    <li>
+                        <a href="HistoriaDoRap.html">Historia do Rap</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="velhaGuarda.html">Velha Guarda</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="novaGuarda.html">Nova Guarda</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+                    <li class="agora">
+                        <a href="cadastro.html">Cadastro</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
     <!--header fim-->
 
 
@@ -75,8 +90,14 @@
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
                     <div class="campo">
-                        <span>Confirmação da Senha:</span>
-                        <input id="confirmacao_senha_input" type="password" placeholder="******">
+                        <span>Epoca que gosta</span>
+                        <select name="" id="comboBox">
+                            <option value=""></option>
+                            <option value="velha_guarda">Velha guarda</option>
+                            <option value="nova_guarda">Nova guarda</option>
+                            <option value="Ambos">Ambos</option>
+                        </select>
+                       
                     </div>
                     <button class="botao" onclick="cadastrar()">Cadastrar</button>
 
@@ -90,14 +111,7 @@
         </div>
     </div>
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
+   
 
 
 </body>
@@ -113,9 +127,11 @@
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var tipoGostoVar = comboBox.value;
+        console.log(tipoGostoVar)
+        console.log(senhaVar)
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || tipoGostoVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
@@ -137,7 +153,8 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                tipoServer: tipoGostoVar
             })
         }).then(function (resposta) {
 
