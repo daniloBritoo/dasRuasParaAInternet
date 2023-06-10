@@ -1,0 +1,33 @@
+
+#HistoriaHome{
+    background-image: url(../assets/imgMain2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 160vh;
+    width: 100%;
+    display: flex;
+}
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+#HistoriaHome .container {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    backdrop-filter: brightness(20%);
+  }
+  #HistoriaHome .container p {
+    font-size: 20px;
+    color: white;
+    width: 80%;
+    text-align: left;
+  }
+  
+  #HistoriaHome .container h1 {
+    color: #32b9cd;
+    font-weight: 800;
+  }

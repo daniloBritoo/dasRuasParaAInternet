@@ -1,3 +1,6 @@
+html{
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +15,11 @@ body {
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
 }
+#imgLogo{
+  width: 8rem;
+  height: 5rem;
+}
+
 
 .container {
   display: flex;
@@ -32,7 +40,7 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: lightblue;
 }
 
 .agora {
@@ -40,12 +48,13 @@ body {
 }
 
 .navbar {
-  width: 300px;
+  width: 450px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color: lightblue;
+  font-size: medium;
 }
 
 .titulo {
@@ -58,26 +67,147 @@ body {
   margin: 0;
 }
 
-.banner {
-  height: var(--tamanho-banner);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+#Historia {
+  height: 100vh;
+  background-image: url('../assets/fundo.jpg');
   background-size: cover;
+  background-attachment: fixed;
 }
 
-.banner .container {
+#Historia .container {
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100%;
 }
 
-.banner .container p {
-  font-size: 36px;
+#Historia .container p {
+  font-size: 28px;
   color: white;
-  width: 280px;
+  width: 70%;
+  text-align: center;
 }
 
-.banner .container span {
+#Historia .container h1 {
+  color: #32b9cd;
   font-weight: 800;
+}
+#Historia .container a{
+  width: 85px;
+  height: 35px;
+  text-align: center;
+  padding-top: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: darkblue;
+}
+#velhaGuarda {
+  height: 75vh;
+  background-color: darkgray;
+  background-image: url('../assets/velhaGuarda1.png');
+  background-attachment: fixed;
+  
+}
+#velhaGuarda .container  {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
+#velhaGuarda .container p {
+  font-size: 28px;
+  color: white;
+  width: 70%;
+  text-align: center;
+}
+
+#velhaGuarda .container h1 {
+  color: white;
+  font-weight: 800;
+}
+#velhaGuarda .container a{
+  width: 85px;
+  height: 35px;
+  text-align: center;
+  padding-top: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: darkblue;
+}
+#velhaGuarda .container #texto1{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border: 2px solid black;
+}
+#divEspaco{
+  background-color: black;
+  width: 100%;
+  height: 5vw;
+}
+#novaGuarda {
+  height: 75vh;
+  background-color: darkgray;
+  background-image: url('../assets/TheMan.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
+#novaGuarda .container  {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
+#novaGuarda .container p {
+  font-size: 28px;
+  color: white;
+  width: 70%;
+  text-align: center;
+}
+
+#novaGuarda .container h1 {
+  color: white;
+  font-weight: 800;
+}
+#novaGuarda .container a{
+  width: 85px;
+  height: 35px;
+  text-align: center;
+  padding-top: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: darkblue;
+}
+#novaGuarda .container #texto1{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border: 2px solid black;
 }
 
 .social {
