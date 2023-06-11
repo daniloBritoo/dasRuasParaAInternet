@@ -44,10 +44,10 @@ function listarPorUsuario(req, res) {
         );
 }
 
-function pesquisarDescricao(req, res) {
-    var descricao = req.params.descricao;
+function pesquisartipo(req, res) {
+    var tipo = req.params.tipo;
 
-    avisoModel.pesquisarDescricao(descricao)
+    avisoModel.pesquisartipo(tipo)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -67,17 +67,17 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var tipo = req.body.tipo;
     var idUsuario = req.params.idUsuario;
 
     if (titulo == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
+    } else if (tipo == undefined) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(titulo, tipo, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -94,10 +94,10 @@ function publicar(req, res) {
 }
 
 function editar(req, res) {
-    var novaDescricao = req.body.descricao;
+    var novatipo = req.body.tipo;
     var idAviso = req.params.idAviso;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(novatipo, idAviso)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -135,7 +135,7 @@ module.exports = {
     testar,
     listar,
     listarPorUsuario,
-    pesquisarDescricao,
+    pesquisartipo,
     publicar,
     editar,
     deletar

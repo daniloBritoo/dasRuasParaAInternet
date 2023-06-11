@@ -65,17 +65,10 @@
             <div id="alerta">
             </div>
 
-            <div class="btns-dash">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart btn-pink" onclick="exibirAquario(1)" id="btnAquario1">Aquario 1</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(2)" id="btnAquario2">Aquario 2</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(3)" id="btnAquario3">Aquario 3</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(4)" id="btnAquario4">Aquario 4</button>
-            </div>
             <div id="graficos">
                 <div id="grafico1" class="display-block">
                     <h3 class="tituloGraficos">
-                        <span id="tituloAquario1">123</span>
+                        <span id="tituloPagina">Top 3 usuarios que mais postam</span>
                     </h3>
                     <div class="graph">
                         <canvas id="myChartCanvas1"></canvas>
@@ -85,41 +78,7 @@
                     </div>
                 </div>
 
-                <div id="grafico2" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario2"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas2"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura2" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico3" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario3"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas3"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura3" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico4" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario4"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas4"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura4" style="color: white"></p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -145,10 +104,7 @@
 
     verificar_autenticacao();
 
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
-    }
+
 
     function exibirAquario(idAquario) {
         let todosOsGraficos = document.getElementById("graficos")

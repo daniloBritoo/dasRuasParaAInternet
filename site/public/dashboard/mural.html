@@ -62,19 +62,23 @@
                 <div id="alerta">
                 </div>
                 <div class="container">
-                    <h1>Publicar um aviso</h1>
+                    <h1>Publicar um artista</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
-                                Título:
+                                Nome do artista:
                                 <br>
                                 <input name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
                             <br>
                             <label>
-                                Descrição (máximo de 250 caracteres):
+                                De qual era ele é?
+                                <br> 
+                                <select name="" id="comboBox">
+                                    <option value="velha Guarda">Velha Guarda</option>
+                                    <option value="nova Guarda">Nova Guarda</option>
+                                </select>
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
                             <button>Enviar</button>
@@ -128,7 +132,7 @@
 
         var corpo = {
             titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            tipo: comboBox.value
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
@@ -215,7 +219,7 @@
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
-                        var divDescricao = document.createElement("div");
+                        var divtipo = document.createElement("div");
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
@@ -224,7 +228,7 @@
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        divtipo.innerHTML = "Descrição: <b>" + publicacao.tipo + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
 
@@ -232,7 +236,7 @@
                         spanTitulo.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
-                        divDescricao.className = "publicacao-descricao";
+                        divtipo.className = "publicacao-tipo";
 
                         divButtons.className = "div-buttons"
 
@@ -247,7 +251,7 @@
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divtipo);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
@@ -272,8 +276,8 @@
 
         var divResultado = document.getElementById("div_feed");
 
-        divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
-        divResultado.innerHTML = formulario.get("descricao");
+        divResultado.appendChild(document.createTextNode(formulario.get("tipo")));
+        divResultado.innerHTML = formulario.get("tipo");
 
         finalizarAguardar();
 

@@ -60,7 +60,7 @@
 
             <div class="avisos">
                 <div class="container">
-                    <h1>Editar um aviso</h1>
+                    <h1>Publicar um artista</h1>
                     <div class="div-form">
                         <label>
                             ID:
@@ -83,7 +83,7 @@
                         <label>
                             Descrição (máximo de 250 caracteres):
                             <br>
-                            <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            <textarea id="textarea_tipo" maxlength="250" rows="5"></textarea>
                         </label>
                         <br>
                         <button onclick="editar()">Editar</button>
@@ -109,7 +109,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                descricao: textarea_descricao.value
+                tipo: textarea_tipo.value
             })
         }).then(function (resposta) {
 

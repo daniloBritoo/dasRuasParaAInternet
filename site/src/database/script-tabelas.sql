@@ -20,7 +20,7 @@ CREATE TABLE usuario (
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
-	descricao VARCHAR(150),
+	tipo VARCHAR(150),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
@@ -28,7 +28,7 @@ CREATE TABLE aviso (
 create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300)
+	tipo VARCHAR(300)
 );
 
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
@@ -60,14 +60,14 @@ CREATE TABLE usuario (
 CREATE TABLE aviso (
 	id INT PRIMARY KEY IDENTITY(1,1),
 	titulo VARCHAR(100),
-	descricao VARCHAR(150),
+	tipo VARCHAR(150),
 	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
 );
 
 create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY IDENTITY(1,1),
-	descricao VARCHAR(300)
+	tipo VARCHAR(300)
 );
 
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
