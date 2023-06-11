@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/logoProjInd.jpg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,38 +22,39 @@
 <body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
     <!-- <body onload="validarSessao()"> -->
 
-    <div class="janela">
-
-
-        <div class="header-left">
-
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
+        <div class="janela">
+            <div class="header-left dash-header">
+    
+                <h1>DRPI</h1>
+    
+                <div class="hello">
+                    <h3>Salve, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+    
+                <div class="btn-nav-white">
+                    <a href="metricas.html">
+                    <h3>Tipo de publico</h3>
                 </a>
+                </div>
+    
+                <div class="btn-nav-white">
+                    <a href="./dashboard.html">
+                        <h3>TOP 3</h3>
+                    </a>
+                </div>
+    
+                <div class="btn-nav">
+                    <a href="./pubComent.html">
+                        <h3>Publicar Comentarios</h3>
+                    </a>
+                </div>
+    
+                <div class="btn-logout" onclick="limparSessao()">
+                    <h3>Sair</h3>
+                </div>
+    
             </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
             </div>
-
-            <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
 
         <div class="dash-right">
 
@@ -149,7 +150,7 @@
 
             if (resposta.ok) {
                 window.alert(`Post realizado com sucesso pelo usuario de ID:  ${idUsuario} na tela de ${tipo}`);
-                window.location = "/dashboard/mural.html";
+                window.location = "/dashboard/pubComent.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -185,7 +186,7 @@
 
             if (resposta.ok) {
                 window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
+                window.location = "/dashboard/pubComent.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
