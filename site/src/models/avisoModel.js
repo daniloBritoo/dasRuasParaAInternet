@@ -19,6 +19,24 @@ function listar() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function buscarDados(){
+    var instrucao = `
+    SELECT (SELECT count(id) from projIndividual.usuario WHERE tipo = 'nova_guarda' ) as nova,
+		(SELECT count(id) from projIndividual.usuario WHERE tipo = 'ambos') as ambos,
+        (SELECT count(id) from projIndividual.usuario WHERE tipo = 'velha_guarda') as velha,
+        (select count(id) from usuario) as total	
+	FROM projIndividual.usuario limit 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function buscarMedidas(){
+    var instrucao = `
+    SELECT u.nome nomeUsuario, count(a.id) as qntdPosts FROM usuario u JOIN aviso a ON a.fk_usuario = u.id GROUP BY u.id ORDER BY qntdPosts desc limit 3;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 function pesquisartipo(texto) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisartipo()");
@@ -92,6 +110,8 @@ function deletar(idAviso) {
 module.exports = {
     listar,
     listarPorUsuario,
+    buscarDados,
+    buscarMedidas,
     pesquisartipo,
     publicar,
     editar,

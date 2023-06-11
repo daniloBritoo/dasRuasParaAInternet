@@ -90,7 +90,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #e6005a;
+  border-bottom: 3px solid lightblue;
   padding: 20px;
 }
 
@@ -99,11 +99,12 @@ body {
 }
 
 .div-results {
-  width: 100%;
+  background-color: black;
 }
 
 .div-results .feed-container {
-  background-color: #212124;
+  backdrop-filter: brightness(50%);
+  color: white;
   border-radius: 5px;
   margin-bottom: 80px;
 }
@@ -234,6 +235,7 @@ body {
   width: 80%;
   margin: auto;
   padding-top: 10px;
+  background-color: darkgray ;
 }
 
 .tituloGraficos {

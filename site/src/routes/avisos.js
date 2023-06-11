@@ -14,6 +14,12 @@ router.get("/listar", function (req, res) {
 router.get("/listar/:idUsuario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
+router.get("/buscar", function(req, res) {
+    avisoController.buscarDados(req, res);
+});
+router.get("/buscarMedidas", function(req, res) {
+    avisoController.buscarMedidas(req, res);
+});
 
 router.get("/pesquisar/:tipo", function (req, res) {
     avisoController.pesquisartipo(req, res);

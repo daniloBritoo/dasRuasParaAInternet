@@ -4,6 +4,38 @@ function testar(req, res) {
     console.log("ENTRAMOS NO avisoController");
     res.send("ENTRAMOS NO AVISO CONTROLLER");
 }
+function buscarDados(req, res){
+    console.log(`Recuperando medidas em tempo real`);
+
+    avisoModel.buscarDados().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+function buscarMedidas(req, res){
+    console.log(`Recuperando medidas em tempo real`);
+
+    avisoModel.buscarMedidas().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
 
 function listar(req, res) {
     avisoModel.listar().then(function (resultado) {
@@ -134,6 +166,8 @@ function deletar(req, res) {
 module.exports = {
     testar,
     listar,
+    buscarDados,
+    buscarMedidas,
     listarPorUsuario,
     pesquisartipo,
     publicar,

@@ -19,7 +19,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizacaoPeriodica()">
+<body onload="validarSessao(), obterDadosGrafico()">
 
 
     <div class="janela">
@@ -59,14 +59,14 @@
             <div id="alerta">
             </div>
             <div class="regua">
-               
+
             </div>
 
             <div class="cards">
                 <div class="card">
                     <h1>Velha guarda</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_1">%</p>
+                        <p id="velhaGuarda"></p>
                     </div>
                 </div>
                 <div class="card">
@@ -84,9 +84,10 @@
                     </div>
                     <div class="cor-alerta" id="card_3"></div>
                 </div>
-                
+
 
             </div>
+            
 
         </div>
     </div>
@@ -97,17 +98,57 @@
 <script>
 
 
+    function obterDadosGrafico() {
 
-    function atualizacaoPeriodica() {
-        obterdados(1);
-        obterdados(2);
-        obterdados(3);
-        obterdados(4);
 
-        setTimeout(atualizacaoPeriodica, 5000);
+        fetch(`/avisos/buscar`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    
+
+                    tratar(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }   
+    var teste = [] 
+    function tratar(resposta){
+        console.log(`ta tratando os dados da ${resposta}`)
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            teste.push(registro.total)
+            teste.push(registro.ambos)
+            teste.push(registro.nova)
+            teste.push(registro.velha)
+
+        }
+        var total = teste[0]
+        var ambos = teste[1]
+        var nova = teste[2]
+        var velha = teste[3]
+        var resultados = {
+            velha: ((velha/total)*100).toFixed(2),
+            nova: ((nova/total)*100).toFixed(2),
+            ambos: ((ambos/total)*100).toFixed(2)
+        }
+       
+        velhaGuarda.innerHTML = `${resultados.velha}%`
+        temp_aquario_2.innerHTML = `${resultados.nova}%`
+        temp_aquario_3.innerHTML = `${resultados.ambos}%`
+
     }
+    
 
 
+   
 </script>
 
 </html>
