@@ -92,6 +92,7 @@
             </p>
             
         </div>
+        
     </div>
     <div class="div-results">
         <div id="feed_container" class="feed-container">
@@ -126,40 +127,37 @@
                        var spanNome = document.createElement("span");
                        var divtipo = document.createElement("div");
                        var divButtons = document.createElement("div");
-                       var btnEditar = document.createElement("button");
-                       var btnDeletar = document.createElement("button");
+                       var imagem = document.createElement("div");
+
 
 
                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                        divtipo.innerHTML = "Tipo: <b>" + publicacao.tipo + "</b>";
-                       btnEditar.innerHTML = "Editar";
-                       btnDeletar.innerHTML = "Deletar";
+                       imagem.innerHTML = `<img src="${publicacao.urlImg}">`;
+                      
 
                        divPublicacao.className = "publicacao";
                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
                        spanNome.className = "publicacao-nome";
                        spanTitulo.className = "publicacao-titulo";
                        divtipo.className = "publicacao-tipo";
-
+                        imagem.className = "imgComentario";
                        divButtons.className = "div-buttons"
 
-                       btnEditar.className = "publicacao-btn-editar"
-                       btnEditar.id = "btnEditar" + publicacao.idAviso;
-                       btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                      
 
-                       btnDeletar.className = "publicacao-btn-editar"
-                       btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                       btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
 
                        divPublicacao.appendChild(spanID);
                        divPublicacao.appendChild(spanNome);
                        divPublicacao.appendChild(spanTitulo);
                        divPublicacao.appendChild(divtipo);
+                       divPublicacao.appendChild(imagem);
                        divPublicacao.appendChild(divButtons);
-                       divButtons.appendChild(btnEditar);
-                       divButtons.appendChild(btnDeletar);
+
+
                        feed.appendChild(divPublicacao);
                    }
                }

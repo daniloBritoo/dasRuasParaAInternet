@@ -81,6 +81,11 @@
                                 </select>
                                 <br>
                             </label>
+                            <label>
+                                Coloque o link de uma foto dele ou de algo relacionado a ele:
+                                <br>
+                                <input name="titulo" id="img" type="text">
+                            </label>
                             <br>
                             <button>Enviar</button>
                         </form>
@@ -134,8 +139,9 @@
         var tipo = sessionStorage.TIPO
 
         var corpo = {
-            titulo: form_postagem.titulo.value,
-            tipo: comboBox.value
+            titulo: titulo.value,
+            tipo: comboBox.value,
+            img: img.value
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
@@ -145,6 +151,7 @@
             },
             body: JSON.stringify(corpo)
         }).then(function (resposta) {
+            alert(corpo.titulo);
 
             console.log("resposta: ", resposta);
 

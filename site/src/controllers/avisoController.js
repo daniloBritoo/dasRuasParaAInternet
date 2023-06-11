@@ -100,6 +100,7 @@ function pesquisartipo(req, res) {
 function publicar(req, res) {
     var titulo = req.body.titulo;
     var tipo = req.body.tipo;
+    var url = req.body.img;
     var idUsuario = req.params.idUsuario;
 
     if (titulo == undefined) {
@@ -109,7 +110,7 @@ function publicar(req, res) {
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, tipo, idUsuario)
+        avisoModel.publicar(titulo, tipo,url, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
