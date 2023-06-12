@@ -40,8 +40,8 @@
 
             <div class="btn-nav-white">
                 <a href="metricas.html">
-                <h3>Tipo de publico</h3>
-            </a>
+                    <h3>Tipo de publico</h3>
+                </a>
             </div>
 
             <div class="btn-nav">
@@ -61,28 +61,28 @@
             </div>
 
         </div>
+    </div>
+
+    <div class="dash">
+        <div id="alerta">
         </div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div id="graficos">
-                <div id="grafico1" class="display-block">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloPagina">Top 3 usuarios que mais postam</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura1" style="color: white"></p>
-                    </div>
+        <div id="graficos">
+            <div id="grafico1" class="display-block">
+                <h3 class="tituloGraficos">
+                    <span id="tituloPagina">Top 3 usuarios que mais postam</span>
+                </h3>
+                <div class="graph">
+                    <canvas id="myChartCanvas"></canvas>
                 </div>
-
-                
+                <div class="label-captura">
+                    <p id="avisoCaptura1" style="color: white"></p>
+                </div>
             </div>
+
+
         </div>
+    </div>
     </div>
 
 
@@ -160,7 +160,7 @@
                     resposta.reverse();
 
                     plotarGrafico(resposta);
-                    
+
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -185,14 +185,15 @@
         let dados = {
             labels: labels,
             datasets: [
-            {
-                label: '',
-                data: [],
-                fill: false,
-                borderColor: 'rgba(0,255,0.3)',
-                backgroudColor: 'rgba(0,255,0.3)',
-                tension: 0.1
-            }]
+                {
+                    label: '',
+                    data: [],
+                    fill: false,
+                    color: 'red ',
+                    borderColor: 'white',
+                    backgroundColor: 'lightblue',
+                    tension: 1
+                }]
         };
 
         console.log('----------------------------------------------')
@@ -203,6 +204,7 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             labels.push(registro.nomeUsuario)
+
             dados.datasets[0].data.push(registro.qntdPosts);
         }
 
@@ -215,9 +217,23 @@
         console.log('----------------------------------------------')
 
         // Criando estrutura para plotar gráfico - config
-        const config = {
+        const config = 
+        {
             type: 'bar',
             data: dados,
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'red', 
+                                font: {
+                                size: 20 // Ajuste o tamanho da fonte conforme necessário
+                            }
+                        }
+                    }
+                }
+            }
+
         };
 
         // Adicionando gráfico criado em div na tela
@@ -230,7 +246,7 @@
 
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
+    // buscando a última medida inserida em tabela contendo as capturas,
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models

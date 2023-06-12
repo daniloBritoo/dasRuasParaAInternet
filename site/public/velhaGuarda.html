@@ -114,35 +114,36 @@
                         if(publicacao.tipo == 'velha Guarda'){
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
-                        var spanNome = document.createElement("span");
-                        var divtipo = document.createElement("div");
-                        var divButtons = document.createElement("div");
+                       var spanTitulo = document.createElement("span");
+                       var spanNome = document.createElement("span");
+                       var divtipo = document.createElement("div");
+                       var divButtons = document.createElement("div");
+                       var coment = document.createElement("div");
+
+
+
+                       spanTitulo.innerHTML = "Nome do artista: <b>" + publicacao.titulo + "</b>";
+                       spanNome.innerHTML = "Usuario: <b>" + publicacao.nome + "</b>";
+                       divtipo.innerHTML = "Tipo: <b>" + publicacao.tipo + "</b>";
+                       coment.innerHTML = `${publicacao.comentario}`;
                       
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divtipo.innerHTML = "Tipo: <b>" + publicacao.tipo + "</b>";
-                        
+                       divPublicacao.className = "publicacao";
+                       spanNome.className = "publicacao-nome";
+                       spanTitulo.className = "publicacao-titulo";
+                       divtipo.className = "publicacao-tipo";
+                        coment.className = "Comentario";
+                       divButtons.className = "div-buttons"
 
-                        divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
-                        divtipo.className = "publicacao-tipo";
+                      
+                       divPublicacao.appendChild(spanNome);
+                       divPublicacao.appendChild(spanTitulo);
+                       divPublicacao.appendChild(divtipo);
+                       divPublicacao.appendChild(coment);
+                       divPublicacao.appendChild(divButtons);
 
-                        divButtons.className = "div-buttons"
 
-                       
-                        divPublicacao.appendChild(spanID);
-                        divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divtipo);
-                        divPublicacao.appendChild(divButtons);
-                        
-                        feed.appendChild(divPublicacao);
+                       feed.appendChild(divPublicacao);
                     }
                 }
                     finalizarAguardar();

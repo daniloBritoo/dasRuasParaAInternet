@@ -8,8 +8,8 @@ var sql = require('mssql');
 var mySqlConfig = {
     host: "localhost",
     database: "projIndividual",
-    user: "root",
-    password: "1234",
+    user: "aluno",
+    password: "sptech",
 };
 
 function executar(instrucao) {

@@ -82,19 +82,15 @@
                                 <br>
                             </label>
                             <label>
-                                Coloque o link de uma foto dele ou de algo relacionado a ele:
+                                Comente algo sobre o artista:
                                 <br>
-                                <input name="titulo" id="img" type="text">
+                                <input name="coment" id="coment" type="text">
                             </label>
                             <br>
                             <button>Enviar</button>
                         </form>
                     </div>
-                    <h1>Mural de Avisos</h1>
-                    <div class="div-results">
-                        <div id="feed_container" class="feed-container">
-                        </div>
-                    </div>
+                
                 </div>
             </div>
 
@@ -141,7 +137,7 @@
         var corpo = {
             titulo: titulo.value,
             tipo: comboBox.value,
-            img: img.value
+            coment: coment.value
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {

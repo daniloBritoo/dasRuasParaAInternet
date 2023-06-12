@@ -131,6 +131,14 @@
         console.log(tipoGostoVar)
         console.log(senhaVar)
 
+        if(emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1){
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Email inválido";
+
+            finalizarAguardar();
+            return false;
+        }
+
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || tipoGostoVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";

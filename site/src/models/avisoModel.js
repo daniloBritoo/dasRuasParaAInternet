@@ -7,12 +7,13 @@ function listar() {
             a.id AS idAviso,
             a.titulo,
             a.tipo,
+            a.comentario,
             a.fk_usuario,
             u.id AS idUsuario,
             u.nome,
             u.email,
             u.senha
-        FROM aviso a
+        FROM comentario a
             INNER JOIN usuario u
                 ON a.fk_usuario = u.id;
     `;
@@ -32,7 +33,7 @@ function buscarDados(){
 }
 function buscarMedidas(){
     var instrucao = `
-    SELECT u.nome nomeUsuario, count(a.id) as qntdPosts FROM usuario u JOIN aviso a ON a.fk_usuario = u.id GROUP BY u.id ORDER BY qntdPosts desc limit 3;
+    SELECT u.nome nomeUsuario, count(a.id) as qntdPosts FROM usuario u JOIN comentario a ON a.fk_usuario = u.id GROUP BY u.id ORDER BY qntdPosts desc limit 3;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -80,10 +81,10 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 
-function publicar(titulo, tipo, url, idUsuario) {
+function publicar(titulo, tipo, comentario, idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, tipo, idUsuario);
     var instrucao = `
-        INSERT INTO aviso (titulo,tipo, urlImg, fk_usuario) VALUES ('${titulo}', '${tipo}','${url}', ${idUsuario});
+        INSERT INTO comentario (titulo,tipo, comentario, fk_usuario) VALUES ('${titulo}', '${tipo}','${comentario}', ${idUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

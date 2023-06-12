@@ -122,39 +122,37 @@
                        if(publicacao.tipo == 'nova Guarda'){
                        // criando e manipulando elementos do HTML via JavaScript
                        var divPublicacao = document.createElement("div");
-                       var spanID = document.createElement("span");
                        var spanTitulo = document.createElement("span");
                        var spanNome = document.createElement("span");
                        var divtipo = document.createElement("div");
                        var divButtons = document.createElement("div");
-                       var imagem = document.createElement("div");
+                       var coment = document.createElement("div");
 
 
 
-                       spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                       spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                       spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                       spanTitulo.innerHTML = "Nome do artista: <b>" + publicacao.titulo + "</b>";
+                       spanNome.innerHTML = "Usuario: <b>" + publicacao.nome + "</b>";
                        divtipo.innerHTML = "Tipo: <b>" + publicacao.tipo + "</b>";
-                       imagem.innerHTML = `<img src="${publicacao.urlImg}">`;
+                       coment.innerHTML = `${publicacao.comentario}`;
                       
 
                        divPublicacao.className = "publicacao";
-                       spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                    
                        spanNome.className = "publicacao-nome";
                        spanTitulo.className = "publicacao-titulo";
                        divtipo.className = "publicacao-tipo";
-                        imagem.className = "imgComentario";
+                        coment.className = "Comentario";
                        divButtons.className = "div-buttons"
 
                       
 
 
 
-                       divPublicacao.appendChild(spanID);
+                      
                        divPublicacao.appendChild(spanNome);
                        divPublicacao.appendChild(spanTitulo);
                        divPublicacao.appendChild(divtipo);
-                       divPublicacao.appendChild(imagem);
+                       divPublicacao.appendChild(coment);
                        divPublicacao.appendChild(divButtons);
 
 
